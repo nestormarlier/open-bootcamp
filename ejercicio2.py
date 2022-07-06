@@ -1,5 +1,5 @@
 inicial=int(input("Ingrese un número inicial: "))
-final=int(input("Ingrese un número final: "))+1 // Para que en el while tome el numero final
+final=int(input("Ingrese un número final: "))+1 # Para que en el while tome el numero final
 
 contador=0
 
