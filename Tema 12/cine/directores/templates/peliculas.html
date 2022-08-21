@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block title %} Peliculas {% endblock %}
+
+{% block content %}
+<div>
+    <h4>Cantidad de películas: {{ cant_peliculas }}</h4>
+</div>
+<table class="table align-up table-bordered border-primary">
+    <tbody>
+    {% for pelicula in movies %}
+    <tr>
+        <td>Título: <strong>{{pelicula.titulo}}</strong></td>
+        <td class="w-100 p-3">Sinopsis: {{pelicula.sinopsis}}</td>
+        <td>Género:
+            {% for genero in pelicula.genre.all %}
+            <strong>{{genero}}</strong>
+            {% endfor %}
+        <td>
+            <button type="button" class="btn btn-warning btn-xs btn-flat">
+                <a href="{{ pelicula.ver }}"><strong>Ver película</strong></a>
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

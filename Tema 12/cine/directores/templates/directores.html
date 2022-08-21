@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block title %} Directores {% endblock %}
+
+{% block content %}
+<div>
+    <h4>Cantidad de directores: {{ cant_directores }}</h4>
+    <h4>Cantidad de películas: {{ cant_peliculas }}</h4>
+</div>
+ <table class="table align-up table-bordered border-primary">
+        <tbody >
+        {% for director in directores %}
+        <tr>
+            <td>Nombre: <strong>{{director.apellido}} {{director.nombre}}</strong></td>
+            <td>Nacionalidad: <strong>{{director.nacionalidad}}</strong></td>
+                {% for pelicula in peliculas %}
+                {% if director.id == pelicula.director.id %}
+                    <td>Título: <strong>{{pelicula.titulo}}</strong></td>
+                    <td class="w-100 p-3">Sinopsis: {{pelicula.sinopsis}}</td>
+                    <td>Género:
+                        {% for genero in pelicula.genre.all %}
+                            <strong>{{genero}}</strong>
+                        {% endfor %}
+                    <td>
+                    <button type="button" class="btn btn-warning btn-xs btn-flat">
+                        <a href="{{ pelicula.ver }}"><strong>Ver película</strong></a>
+                    </button>
+            </td>
+            {% endif %}
+            {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block title %} Géneros {% endblock %}
+
+{% block content %}
+<div>
+    <h4>Cantidad de géneros: {{ cant_generos }}</h4>
+</div>
+<table class="table align-up table-bordered border-primary">
+    <tbody>
+    {% for genero in generos %}
+    <tr>
+        <td><strong>{{genero.nombre}}</strong></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
